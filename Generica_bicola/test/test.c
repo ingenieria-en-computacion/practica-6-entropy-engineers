@@ -77,7 +77,7 @@ END_TEST
 /* Suite de pruebas principal */
 /* ------------------------------------- */
 
-Suite* linked_list_suite(void){
+Suite* linked_list_suite(void) {
     Suite* s = suite_create("Linked List");
     
     TCase* tc_core = tcase_create("Core Functions");
