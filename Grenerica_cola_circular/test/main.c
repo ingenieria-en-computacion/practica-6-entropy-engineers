@@ -19,9 +19,9 @@ bool int_cmp(int a, int b) {
 
 START_TEST(test_list_create) {
     List_int* list = list_int_create();
-    ck_assert_ptr_nonnull(list);
-    ck_assert_ptr_null(list->head);
-    ck_assert_ptr_null(list->tail);
+    ck_assert_ptr_ne(list, NULL);
+    ck_assert_ptr_eq(list->head, NULL);
+    ck_assert_ptr_eq(list->tail, NULL);
     ck_assert_uint_eq(list->length, 0);
     list_int_destroy(list);
 }
@@ -37,7 +37,6 @@ START_TEST(test_append_and_length) {
     ck_assert_uint_eq(list_int_length(list), 2);
     
     list_int_destroy(list);
-    ck_assert_ptr_null(list);
 }
 END_TEST
 
@@ -77,7 +76,7 @@ END_TEST
 /* Suite de pruebas principal */
 /* ------------------------------------- */
 
-Suite* linked_list_suite(void){
+Suite* linked_list_suite(void) {
     Suite* s = suite_create("Linked List");
     
     TCase* tc_core = tcase_create("Core Functions");
